@@ -4,6 +4,7 @@ const fs = require('fs');
 
 data = JSON.parse(fs.readFileSync(process.env.DUNDERGITCALL_FILE));
 data.datetime = moment().format();
+data.app = "jsrepo";
 
 if (data.webhook !== undefined) {
     axios.post(data.webhook, data)
